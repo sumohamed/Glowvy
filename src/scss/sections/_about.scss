@@ -108,7 +108,7 @@
 	&__form-row {
 		@include grid(1fr, var(--space-sm));
 
-		@include breakpoint-up(small) {
+		@include breakpoint-up(medium) {
 			@include grid(1fr 1fr, var(--space-sm));
 		}
 	}

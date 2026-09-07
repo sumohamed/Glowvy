@@ -1,0 +1,202 @@
+@use "../utils" as *;
+
+.booking-faq {
+	background-color: var(--bg-alt);
+
+	&__layout {
+		@include grid(1fr, var(--space-xl)) {
+			align-items: start;
+		}
+
+		@include breakpoint-up(large) {
+			@include grid(1.15fr 1fr, var(--space-2xl));
+		}
+
+		&--left {
+			@include flex(column, var(--space-lg));
+
+			.booking-card {
+				background-color: var(--white);
+				border: 1px solid rgba(185, 147, 176, 0.25);
+				border-radius: var(--radius-md);
+				padding: var(--space-lg);
+				box-shadow: 0 4px 20px rgba(45, 35, 46, 0.04);
+
+				&__head {
+					margin-block-end: var(--space-md);
+				}
+
+				&__title {
+					color: var(--text-main);
+				}
+
+				&__subtitle {
+					font-size: var(--fs-sm);
+					color: var(--text-muted);
+				}
+			}
+
+			.booking-form {
+				@include flex(column, var(--space-sm));
+
+				&__row {
+					@include grid(1fr, var(--space-sm));
+
+					@include breakpoint-up(small) {
+						@include grid(1fr 1fr, var(--space-sm));
+					}
+				}
+
+				&__input,
+				&__select,
+				&__textarea {
+					width: 100%;
+					padding: var(--space-xs) var(--space-sm);
+					border: 1px solid rgba(185, 147, 176, 0.35);
+					border-radius: var(--radius-xs);
+					background-color: var(--bg-main);
+					color: var(--text-main);
+					font-size: var(--fs-sm);
+					outline: none;
+					transition: border-color var(--transition-fast);
+
+					&:focus {
+						border-color: var(--primary);
+					}
+				}
+				&__textarea {
+					resize: vertical;
+					min-height: 85px;
+				}
+				&__submit {
+					width: 100%;
+					margin-top: var(--space-2xs);
+				}
+			}
+		}
+
+		&--right {
+			.faq-head {
+				margin-block-end: var(--space-lg);
+
+				&__subtitle {
+					font-size: 0.75rem;
+					font-weight: var(--fw-bold);
+					letter-spacing: 2px;
+					color: var(--secondary);
+					text-transform: uppercase;
+				}
+
+				&__title {
+					font-family: var(--font-heading);
+					font-size: var(--fs-h2);
+					color: var(--text-main);
+					margin-top: var(--space-3xs);
+				}
+			}
+
+			.faq-accordion {
+				display: flex;
+				flex-direction: column;
+				gap: var(--space-xs);
+			}
+
+			.faq-item {
+				border: 1px solid rgba(185, 147, 176, 0.25);
+				border-radius: var(--radius-xs);
+				background-color: var(--white);
+				overflow: hidden;
+				transition: border-color var(--transition-fast);
+
+				&__trigger {
+					width: 100%;
+					padding: var(--space-sm) var(--space-md);
+					display: flex;
+					justify-content: space-between;
+					align-items: center;
+					background: transparent;
+					border: none;
+					text-align: left;
+					cursor: pointer;
+					font-weight: var(--fw-semibold);
+					font-size: 0.95rem;
+					color: var(--text-main);
+					transition:
+						color var(--transition-fast),
+						background-color var(--transition-fast);
+				}
+
+				&__icon {
+					position: relative;
+					width: 14px;
+					height: 14px;
+					flex-shrink: 0;
+
+					&::before,
+					&::after {
+						content: "";
+						position: absolute;
+						background-color: var(--text-main);
+						transition: transform var(--transition-normal);
+					}
+
+					&::before {
+						top: 6px;
+						left: 0;
+						width: 14px;
+						height: 2px;
+					}
+
+					&::after {
+						top: 0;
+						left: 6px;
+						width: 2px;
+						height: 14px;
+					}
+				}
+
+				&__content {
+					display: grid;
+					grid-template-rows: 0fr;
+					transition: grid-template-rows var(--transition-normal);
+				}
+
+				&__inner {
+					overflow: hidden;
+				}
+
+				&__answer {
+					padding: 0 var(--space-md) var(--space-md);
+					font-size: 0.88rem;
+					color: var(--text-muted);
+					line-height: 1.6;
+				}
+
+				// حالة العنصر المفتوح
+				&.is-open {
+					border-color: var(--secondary);
+
+					.faq-item__trigger {
+						background-color: var(--secondary);
+						color: var(--white);
+					}
+
+					.faq-item__icon {
+						&::before,
+						&::after {
+							background-color: var(--white);
+						}
+						&::after {
+							transform: rotate(90deg);
+							opacity: 0;
+						}
+					}
+
+					.faq-item__content {
+						grid-template-rows: 1fr;
+					}
+				}
+			}
+		}
+	}
+}

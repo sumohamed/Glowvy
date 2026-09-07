@@ -1,0 +1,61 @@
+h1,
+h2,
+h3,
+h4 {
+	font-family: var(--font-heading);
+	line-height: 1.1;
+}
+
+h1 {
+	font-size: var(--fs-h1);
+	font-weight: var(--fw-bold);
+}
+
+h2 {
+	font-size: var(--fs-h2);
+	font-weight: var(--fw-semibold);
+}
+
+h3 {
+	font-size: var(--fs-h3);
+	font-weight: var(--fw-semibold);
+}
+
+h4 {
+	font-size: var(--fs-h4);
+	font-weight: var(--fw-medium);
+}
+
+p {
+	font-family: var(--font-body);
+	font-size: var(--fs-body);
+	line-height: 1.6;
+}
+
+a {
+	font-family: var(--font-body);
+	font-size: var(--fs-body);
+	font-weight: var(--fw-medium);
+}
+
+button,
+.btn {
+	font-family: var(--font-body);
+	font-size: var(--fs-small);
+	font-weight: var(--fw-semibold);
+	line-height: 1;
+	letter-spacing: 0.03em;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	gap: 0.5rem;
+}
+
+.icon {
+	display: inline-block;
+	font-size: 1.15em;
+	line-height: 1;
+	vertical-align: middle;
+	width: 1.25em;
+	height: 1.25em;
+}

@@ -1,0 +1,232 @@
+@use "../utils" as *;
+
+.about {
+	background-color: var(--bg-alt);
+	position: relative;
+
+	&__body {
+		@include grid(1fr, var(--space-xl)) {
+			align-items: center;
+		}
+
+		margin-block-end: var(--space-2xl);
+
+		@include breakpoint-up(medium) {
+			@include grid(1fr 1.15fr, var(--space-2xl));
+		}
+	}
+
+	&__visual {
+		position: relative;
+
+		@include flex(row) {
+			align-items: center;
+			justify-content: center;
+		}
+	}
+
+	&__vertical-tag {
+		display: none;
+		position: absolute;
+		left: -2.5rem;
+		top: 50%;
+		transform: translateY(-50%) rotate(-90deg);
+		font-size: 0.75rem;
+		font-weight: var(--fw-bold);
+		letter-spacing: 0.3em;
+		color: var(--text-muted);
+		white-space: nowrap;
+
+		@include breakpoint-up(medium) {
+			display: block;
+		}
+	}
+
+	&__image-wrap {
+		position: relative;
+		width: 100%;
+		max-width: 420px;
+		border-radius: var(--radius-lg);
+		overflow: visible;
+	}
+
+	&__img {
+		width: 100%;
+		aspect-ratio: 4 / 5;
+		object-fit: cover;
+		border-radius: var(--radius-lg);
+		box-shadow: 0 15px 35px rgba(45, 35, 46, 0.08);
+	}
+
+	&__floating-badge {
+		@include flex(column) {
+			align-items: center;
+			justify-content: center;
+		}
+		position: absolute;
+		bottom: -15px;
+		right: -15px;
+		width: 110px;
+		height: 110px;
+		border-radius: var(--radius-full);
+		background-color: var(--secondary);
+		color: var(--white);
+		text-align: center;
+		padding: var(--space-sm);
+		box-shadow: 0 10px 20px rgba(185, 147, 176, 0.35);
+		border: 3px solid var(--white);
+
+		span {
+			font-size: 0.65rem;
+			font-weight: var(--fw-bold);
+			line-height: 1.2;
+			letter-spacing: 0.5px;
+		}
+	}
+
+	&__badge-icon {
+		width: 18px;
+		height: 18px;
+		margin-block-end: 4px;
+		color: var(--accent);
+	}
+
+	&__content {
+		@include flex(column, var(--space-md));
+	}
+
+	&__desc {
+		color: var(--text-muted);
+		line-height: 1.7;
+	}
+
+	&__form {
+		@include flex(column, var(--space-sm));
+		margin-block-start: var(--space-xs);
+	}
+
+	&__form-row {
+		@include grid(1fr, var(--space-sm));
+
+		@include breakpoint-up(small) {
+			@include grid(1fr 1fr, var(--space-sm));
+		}
+	}
+
+	&__form-group {
+		@include flex(column, var(--space-3xs));
+	}
+
+	&__label {
+		font-size: var(--fs-sm);
+		font-weight: var(--fw-semibold);
+		color: var(--text-main);
+	}
+
+	&__input,
+	&__select {
+		width: 100%;
+		padding: 0.85rem 1rem;
+		border-radius: var(--radius-sm);
+		border: 1px solid rgba(185, 147, 176, 0.4);
+		background-color: var(--white);
+		color: var(--text-main);
+		font-size: var(--fs-sm);
+		outline: none;
+		transition:
+			border-color var(--transition-fast),
+			box-shadow var(--transition-fast);
+
+		&:focus {
+			border-color: var(--secondary);
+			box-shadow: 0 0 0 3px rgba(185, 147, 176, 0.15);
+		}
+
+		&::placeholder {
+			color: rgba(122, 107, 121, 0.6);
+		}
+	}
+
+	&__select-wrap {
+		position: relative;
+
+		.about__select {
+			appearance: none;
+			-webkit-appearance: none;
+			cursor: pointer;
+			padding-right: 2.5rem;
+		}
+	}
+
+	&__select-icon {
+		position: absolute;
+		right: 1rem;
+		top: 50%;
+		transform: translateY(-50%);
+		width: 1em;
+		height: 1em;
+		color: var(--secondary);
+		pointer-events: none;
+	}
+
+	&__submit-btn {
+		width: 100%;
+		margin-block-start: var(--space-2xs);
+	}
+
+	&__foot {
+		@include grid-auto(var(--space-md)) {
+			align-items: center;
+		}
+
+		padding: var(--space-lg);
+		background-color: var(--white);
+		border-radius: var(--radius-md);
+		border: 1px solid rgba(185, 147, 176, 0.25);
+		box-shadow: 0 10px 30px rgba(45, 35, 46, 0.03);
+	}
+
+	&__info-card {
+		@include flex(row, var(--space-sm)) {
+			align-items: flex-start;
+		}
+	}
+
+	&__info-icon {
+		@include flex(row) {
+			align-items: center;
+			justify-content: center;
+			flex-shrink: 0;
+		}
+		width: 42px;
+		height: 42px;
+		border-radius: var(--radius-full);
+		background-color: var(--bg-alt);
+		color: var(--secondary);
+
+		svg {
+			width: 20px;
+			height: 20px;
+		}
+	}
+
+	&__info-title {
+		color: var(--text-main);
+		font-weight: var(--fw-bold);
+		margin-block-end: 2px;
+		letter-spacing: 1px;
+	}
+
+	&__info-text {
+		color: var(--text-muted);
+		line-height: 1.4;
+	}
+
+	&__info-sub {
+		display: block;
+		font-size: 0.75rem;
+		color: var(--secondary);
+		font-weight: var(--fw-semibold);
+		margin-block-start: 2px;
+	}
+}

@@ -1,0 +1,177 @@
+@use "../utils" as *;
+
+.header {
+	background: var(--bg-main) var(--grad-header);
+	position: relative;
+	.topbar {
+		display: none;
+
+		@include breakpoint-up(large) {
+			border-bottom: 1px solid var(--accent);
+			padding: var(--space-2xs) var(--space-sm);
+			@include flex(row) {
+				justify-content: space-between;
+				align-items: center;
+			}
+			&__group {
+				@include flex(row, var(--space-md)) {
+					justify-content: space-between;
+					align-items: center;
+				}
+			}
+
+			&__item {
+				font-size: var(--fs-sm);
+				flex: 1;
+				@include flex(row, var(--space-2xs)) {
+					align-items: center;
+					justify-content: flex-start;
+				}
+			}
+
+			&__icon {
+				width: 1.05rem;
+				height: 1.05rem;
+				color: var(--text-muted);
+				flex-shrink: 0;
+			}
+
+			span {
+				white-space: nowrap;
+				cursor: pointer;
+				font-weight: var(--fw-medium);
+				color: var(--text-muted);
+				transition: var(--transition-fast);
+				&:hover {
+					color: var(--secondary);
+				}
+			}
+		}
+	}
+
+	.navbar {
+		padding-block: var(--space-sm);
+		position: relative;
+		&__toggle {
+			@include breakpoint-up(large) {
+				display: none;
+			}
+		}
+
+		&__container {
+			@include flex(row) {
+				justify-content: space-between;
+				align-items: center;
+			}
+		}
+
+		&__logo {
+			flex: 1;
+			@include flex(row) {
+				justify-content: flex-start;
+			}
+		}
+
+		&__nav {
+			@include breakpoint-down(medium) {
+				position: absolute;
+				top: 100%;
+				left: 0;
+				width: 100%;
+				background-color: var(--bg-main);
+				border-bottom: 1px solid var(--accent);
+				z-index: 50;
+				opacity: 0;
+				visibility: hidden;
+				transform: translateY(-10px);
+				pointer-events: none;
+
+				@include flex(column, var(--space-lg)) {
+					align-items: center;
+				}
+			}
+
+			&.is-open {
+				opacity: 1;
+				visibility: visible;
+				transform: translateY(0);
+				pointer-events: auto;
+				padding: var(--space-md);
+				transition:
+					opacity var(--transition-slow),
+					transform var(--transition-slow);
+			}
+
+			@include breakpoint-up(large) {
+				position: static;
+				width: auto;
+				border-bottom: none;
+				background-color: transparent;
+				opacity: 1;
+				visibility: visible;
+				transform: none;
+				pointer-events: auto;
+				padding: 0;
+				flex: 2;
+				@include flex(row, var(--space-md)) {
+					justify-content: space-between;
+					align-items: center;
+				}
+			}
+		}
+
+		&__menu {
+			@include flex(column, var(--space-sm));
+			@include breakpoint-up(large) {
+				@include flex(row, var(--space-md));
+			}
+		}
+
+		&__item {
+			&--link {
+				font-weight: var(--fw-semibold);
+				color: var(--text-main);
+				position: relative;
+				transition: var(--transition-fast);
+				&::before,
+				&::after {
+					content: "";
+					position: absolute;
+					left: 0;
+					width: 100%;
+					height: 2px;
+					background-color: var(--secondary);
+					transform: scaleX(0);
+					transform-origin: center;
+					transition: var(--transition-fast);
+				}
+				&::before {
+					bottom: -4px;
+				}
+
+				&::after {
+					bottom: -8px;
+					transition-delay: 70ms;
+				}
+				&:hover,
+				&.active {
+					color: var(--secondary);
+					&::before,
+					&::after {
+						transform: scaleX(1);
+					}
+				}
+			}
+		}
+
+		&__actions {
+			flex: 1;
+
+			@include breakpoint-up(large) {
+				display: inline-flex;
+				justify-content: flex-end;
+				align-items: center;
+			}
+		}
+	}
+}

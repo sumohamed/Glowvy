@@ -1,0 +1,21 @@
+{
+	"name": "glowve",
+	"version": "0.0.0",
+	"private": true,
+	"type": "module",
+	"scripts": {
+		"dev": "vite --host",
+		"build": "vite build",
+		"preview": "vite preview",
+		"predeploy": "npm run build",
+		"deploy": "gh-pages -d dist"
+	},
+	"devDependencies": {
+		"gh-pages": "^6.3.0",
+		"sass": "^1.103.1",
+		"vite": "^8.2.2"
+	},
+	"dependencies": {
+		"lucide": "^1.39.0"
+	}
+}

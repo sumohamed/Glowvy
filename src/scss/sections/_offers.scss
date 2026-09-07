@@ -1,0 +1,128 @@
+@use "../utils" as *;
+
+.offers {
+	background-color: var(--bg-main);
+
+	&__body {
+		@include grid-auto(var(--space-md));
+	}
+}
+
+.package-card {
+	@include flex(column) {
+		justify-content: space-between;
+	}
+	position: relative;
+	background-color: var(--white);
+	border: 1px solid rgba(185, 147, 176, 0.25);
+	border-radius: var(--radius-md);
+	padding: var(--space-lg) var(--space-md);
+
+	text-align: center;
+	transition:
+		transform var(--transition-normal),
+		border-color var(--transition-normal),
+		box-shadow var(--transition-normal);
+
+	&:hover {
+		transform: translateY(-6px);
+		border-color: var(--secondary);
+		box-shadow: 0 16px 32px rgba(45, 35, 46, 0.08);
+	}
+
+	&--popular {
+		border-color: var(--secondary);
+		box-shadow: 0 10px 25px rgba(110, 74, 111, 0.1);
+
+		.package-card__badge {
+			position: absolute;
+			top: 0;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			background-color: var(--secondary);
+			color: var(--white);
+			font-size: 0.7rem;
+			font-weight: var(--fw-bold);
+			letter-spacing: 1.5px;
+			text-transform: uppercase;
+			padding: var(--space-3xs) var(--space-sm);
+			border-radius: var(--radius-full);
+			white-space: nowrap;
+		}
+	}
+
+	&__header {
+		margin-block-end: var(--space-md);
+	}
+
+	&__title {
+		color: var(--text-main);
+		line-height: 1.3;
+		margin-block-end: var(--space-3xs);
+	}
+
+	&__subtitle {
+		font-size: var(--fs-sm);
+		color: var(--text-muted);
+		margin-block-end: var(--space-sm);
+	}
+
+	&__price {
+		display: inline-flex;
+		align-items: baseline;
+		justify-content: center;
+		color: var(--primary);
+
+		.currency {
+			font-size: var(--fs-h3);
+			font-weight: var(--fw-semibold);
+			margin-inline-end: 2px;
+		}
+
+		.amount {
+			font-family: var(--font-heading);
+			font-size: var(--fs-h2);
+			font-weight: var(--fw-bold);
+			line-height: 1;
+		}
+	}
+
+	&__list {
+		@include flex(column, var(--space-sm));
+
+		border-top: 1px solid rgba(185, 147, 176, 0.18);
+		border-bottom: 1px solid rgba(185, 147, 176, 0.18);
+		padding-block: var(--space-md);
+		margin-block-end: var(--space-md);
+		text-align: left;
+	}
+
+	&__item {
+		@include flex(row, var(--space-xs));
+		font-size: var(--fs-sm);
+		color: var(--text-main);
+		line-height: 1.4;
+
+		&--choice {
+			font-weight: var(--fw-semibold);
+			color: var(--primary);
+		}
+	}
+
+	&__icon {
+		width: 16px;
+		height: 16px;
+		stroke-width: 1.75;
+		color: var(--secondary);
+		flex-shrink: 0;
+	}
+
+	&__action {
+		margin-top: auto;
+
+		.btn {
+			width: 100%;
+			padding-inline: 0;
+		}
+	}
+}

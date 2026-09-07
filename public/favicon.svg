@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <defs>
+    <linearGradient id="glowvyGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#6e4a6f" />
+      <stop offset="100%" stop-color="#4a2f4c" />
+    </linearGradient>
+  </defs>
+
+  <!-- خلفية ناعمة بحواف دائرية فخمة -->
+  <rect width="64" height="64" rx="16" fill="url(#glowvyGrad)" />
+
+  <!-- حرف G بالخط الفخم اللاتيني (Serif) بألوان الأكسنت -->
+  <text 
+    x="32" 
+    y="44" 
+    font-family="'Playfair Display', Georgia, serif" 
+    font-size="34" 
+    font-weight="700" 
+    fill="#fdfafd" 
+    text-anchor="middle"
+  >G</text>
+
+  <!-- نجمة اللمعان والتوهج (Sparkle) في الزاوية العلوية اليمنى -->
+  <path 
+    d="M 45 13 C 45 18 48 21 53 21 C 48 21 45 24 45 29 C 45 24 42 21 37 21 C 42 21 45 18 45 13 Z" 
+    fill="#f4c2ce" 
+  />
+  <circle cx="45" cy="21" r="1.5" fill="#ffffff" />
+</svg>

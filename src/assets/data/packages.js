@@ -1,0 +1,66 @@
+export const packagesData = [
+	{
+		id: "weekly-refresh",
+		title: "The Weekly Refresh",
+		subtitle: "Quick Weekend Pick-Me-Up",
+		price: 480,
+		isPopular: false,
+		items: [
+			{ text: "Wash & Bouncy Blow-Dry", icon: "sparkles" },
+			{ text: "Quick Mani & Polish Change", icon: "sparkles" },
+			{ text: "Brow & Upper-Lip Clean-up", icon: "sparkles" },
+			{ text: "Free Hydrating Hair Mask", icon: "gift" },
+		],
+		ctaText: "Book Refresh",
+	},
+	{
+		id: "the-new-look",
+		title: "The New Look",
+		subtitle: "Style & Color Makeover",
+		price: 3400,
+		isPopular: true,
+		items: [
+			{ text: "Full Hair Color / Highlights", icon: "sparkles" },
+			{ text: "Haircut & Precision Trim", icon: "sparkles" },
+			{ text: "Full Mani & Pedi Session", icon: "sparkles" },
+			{
+				text: "Delicate Henna Art OR Deep Mask",
+				icon: "sliders",
+				isChoice: true,
+			},
+		],
+		ctaText: "Claim Makeover",
+	},
+	{
+		id: "deep-therapy",
+		title: "Deep Therapy",
+		subtitle: "Intense Hair Restoration",
+		price: 8000,
+		isPopular: false,
+		items: [
+			{ text: "Hair Treatment / Protein Ritual", icon: "sparkles" },
+			{ text: "Japanese Head Spa & Waterfall", icon: "sparkles" },
+			{ text: "Deep Moisture Butter Mask", icon: "sparkles" },
+			{ text: "Split-End Dusting & Styling", icon: "sparkles" },
+		],
+		ctaText: "Restore Hair",
+	},
+	{
+		id: "full-body-reset",
+		title: "The Full-Body Reset",
+		subtitle: "Ultimate Head-to-Toe Care",
+		price: 9960,
+		isPopular: false,
+		items: [
+			{
+				text: "Moroccan Bath OR Sauna & Jacuzzi",
+				icon: "sliders",
+				isChoice: true,
+			},
+			{ text: "Deep Cleansing Facial", icon: "sparkles" },
+			{ text: "Spa Pedicure & Foot Care", icon: "sparkles" },
+			{ text: "Hair Nourishing & Wash Ritual", icon: "sparkles" },
+		],
+		ctaText: "Reserve Full Day",
+	},
+];

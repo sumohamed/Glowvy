@@ -1,0 +1,13 @@
+@use "../utils" as *;
+
+#app {
+	display: grid;
+	grid-template-rows: auto 1fr auto;
+	min-height: 100vh;
+	min-height: 100dvh;
+}
+
+.container {
+	width: min(100% - 2rem, 75em);
+	margin-inline: auto;
+}

@@ -1,0 +1,157 @@
+@use "../utils" as *;
+
+.logo {
+	height: 38px;
+	width: auto;
+	max-width: 160px;
+	object-fit: contain;
+}
+
+.btn {
+	position: relative;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	padding: var(--space-xs) var(--space-sm);
+	border-radius: var(--radius-sm);
+	font-family: var(--font-body);
+	font-size: var(--fs-sm);
+	font-weight: var(--fw-bold);
+	letter-spacing: 2px;
+	text-transform: uppercase;
+	border: 1px solid var(--primary);
+	overflow: hidden;
+	white-space: nowrap;
+	z-index: 1;
+
+	.text {
+		position: relative;
+		z-index: 1;
+		transition: color 250ms ease;
+	}
+
+	&::before {
+		content: "";
+		position: absolute;
+		bottom: 100%;
+		left: 50%;
+		transform: translateX(-50%);
+		width: 200%;
+		height: 200%;
+		border-radius: 50%;
+		transition: bottom 500ms ease;
+		z-index: -1;
+	}
+
+	&:hover::before {
+		bottom: -50%;
+	}
+
+	&--secondary {
+		background-color: var(--primary);
+
+		.text {
+			color: var(--bg-main);
+		}
+
+		&::before {
+			background-color: var(--bg-main);
+		}
+
+		&:hover .text {
+			color: var(--primary);
+		}
+	}
+}
+
+.section {
+	padding-block: var(--space-section);
+	&__sm {
+		padding-block: var(--space-xl);
+	}
+
+	&__sm &__head {
+		padding-bottom: var(--space-md);
+	}
+
+	&__head {
+		text-align: center;
+		padding-bottom: var(--space-xl);
+		&--divider {
+			width: 100px;
+			height: auto;
+			color: var(--accent);
+			display: block;
+			margin: var(--space-3xs) auto;
+			.divider {
+				width: 100%;
+			}
+		}
+		&--subtitle {
+			display: block;
+			text-transform: uppercase;
+			letter-spacing: 1px;
+			color: var(--accent);
+			position: relative;
+		}
+		&--title {
+			margin-block: var(--space-xs);
+			color: var(--text-main);
+		}
+		&--description {
+			max-width: 35ch;
+			margin-inline: auto;
+			color: var(--text-main);
+			opacity: 0.7;
+		}
+	}
+}
+
+.separator {
+	width: 0.5rem;
+	height: 0.5rem;
+	border: 1px solid var(--secondary);
+	transform: rotate(45deg);
+}
+
+.back-to-top {
+	@include flex(row) {
+		align-items: center;
+		justify-content: center;
+	}
+	position: fixed;
+	bottom: 2rem;
+	right: 2rem;
+	width: 44px;
+	height: 44px;
+	border-radius: var(--radius-full);
+	background-color: var(--secondary);
+	color: var(--bg-main);
+	border: 1px solid var(--secondary);
+	z-index: 99;
+	opacity: 0;
+	visibility: hidden;
+	transform: translateY(15px);
+	transition:
+		opacity var(--transition-normal),
+		transform var(--transition-normal),
+		background-color var(--transition-fast),
+		color var(--transition-fast);
+
+	&.is-visible {
+		opacity: 1;
+		visibility: visible;
+		transform: translateY(0);
+	}
+
+	&:hover {
+		background-color: var(--bg-main);
+		color: var(--secondary);
+		box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+	}
+
+	svg {
+		width: 20px;
+		height: 20px;
+	}
+}

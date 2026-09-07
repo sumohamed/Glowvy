@@ -1,0 +1,26 @@
+@mixin grid-auto($gap: 1rem) {
+	display: grid;
+	grid-template-columns: repeat(
+		auto-fit,
+		minmax(min(100% - 2rem, 15rem), 1fr)
+	);
+	gap: $gap;
+
+	@content;
+}
+
+@mixin grid($width: 1fr, $gap: 1rem) {
+	display: grid;
+	grid-template-columns: $width;
+	gap: $gap;
+	@content;
+}
+
+@mixin flex($direction, $gap: 0) {
+	display: flex;
+	flex-direction: $direction;
+	@if $gap != 0 {
+		gap: $gap;
+	}
+	@content;
+}
